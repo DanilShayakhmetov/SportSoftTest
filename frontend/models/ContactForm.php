@@ -15,7 +15,8 @@ class ContactForm extends Model
     public $email;
     public $phone;
     public $body;
-    public $verifyCode;
+//    public $verifyCode;
+    public $reCaptcha;
 
 
     /**
@@ -31,12 +32,10 @@ class ContactForm extends Model
             [['name','surName'], 'string', 'min'=> 3],
             [['body'], 'string', 'min'=> 100],
             // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
-            [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator3::className(),
-                'secret' => 'your secret key', // unnecessary if reСaptcha is already configured
-                'threshold' => 0.5,
-                'action' => 'homepage',
-            ],
+//            ['verifyCode', 'captcha'],
+            [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator2::className(),
+                'secret' => '6LdNSMgUAAAAACGag151RJgfWMGDf1lYk3hxhLr5', // unnecessary if reСaptcha is already configured
+                'uncheckedMessage' => 'Please confirm that you are not a bot.'],
         ];
     }
 
@@ -46,7 +45,7 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'reCaptcha' => 'reCaptcha',
         ];
     }
 

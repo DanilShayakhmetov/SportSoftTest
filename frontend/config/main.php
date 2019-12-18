@@ -18,14 +18,15 @@ return [
         ],],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'reCaptcha' => [
+            'class' => 'himiklab\yii2\recaptcha\ReCaptchaConfig',
+            'siteKeyV2' => '6LdNSMgUAAAAADTJgfMyplx94bqrdrrq_tpj5Iwa',
+            'secretV2' =>  '6LdNSMgUAAAAACGag151RJgfWMGDf1lYk3hxhLr5',
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
-        'reCaptcha' => [
-            'class' => 'himiklab\yii2\recaptcha\ReCaptchaConfig',
-            'siteKeyV3' => '6LeERcgUAAAAAAbJlOcFsoH_eEoG8Qt_rPrwq5YJ',
-            'secretV3' => '6LeERcgUAAAAAC4-wPNjj7OUAVydrafVE8nyBBH7',
-        ],
+
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

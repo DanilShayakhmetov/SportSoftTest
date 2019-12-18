@@ -63,10 +63,10 @@ class SiteController extends Controller
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
+//            'captcha' => [
+//                'class' => 'yii\captcha\CaptchaAction',
+//                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+//            ],
         ];
     }
 
@@ -135,7 +135,6 @@ class SiteController extends Controller
                     $contact->user_id = $user_id;
                     $contact->save();
                     Yii::$app->session->setFlash('success', 'Thank you for you message');
-                    $this->refresh();
             } else {
                 return $this->render('contact', [
                     'model' => $model,
