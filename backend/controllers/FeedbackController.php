@@ -11,8 +11,7 @@ class FeedbackController extends \yii\web\Controller
 {
     public function actionAll()
     {
-
-        $feedbackMessages = (new Query())
+        if (!Yii::$app->user->isGuest){$feedbackMessages = (new Query())
             ->select(['id',
                 'name',
                 'sur_name',
@@ -21,13 +20,13 @@ class FeedbackController extends \yii\web\Controller
                 'text_message'])
             ->from('contact')
             ->all();
-        $dataProvider = new ArrayDataProvider([
-            'allModels' => $feedbackMessages,
-            'sort'=>['attributes'=>['id','name','sur_name','email','text_message','phone_number']]]);
+            $dataProvider = new ArrayDataProvider([
+                'allModels' => $feedbackMessages,
+                'sort'=>['attributes'=>['id','name','sur_name','email','text_message','phone_number']]]);
 
-        return $this->render('index', [
-            'dataProvider' => $dataProvider
-        ]);
+            return $this->render('index', [
+                'dataProvider' => $dataProvider
+            ]);}
     }
 
 
