@@ -134,13 +134,14 @@ class SiteController extends Controller
                     $contact->text_message = $model->body;
                     $contact->user_id = $user_id;
                     $contact->save();
-                    Yii::$app->session->setFlash('success', 'Thank you for you message');
             } else {
                 return $this->render('contact', [
                     'model' => $model,
                 ]);
             }
-	
+            Yii::$app->session->setFlash('success', 'Thank you for you message');
+            $contact->save();
+            return $this->render('about');
         }
 
     }

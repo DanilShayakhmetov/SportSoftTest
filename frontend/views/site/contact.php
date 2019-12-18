@@ -40,14 +40,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
 
-
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
             <?= $form->field($model, 'reCaptcha')->widget(
                 \himiklab\yii2\recaptcha\ReCaptcha2::className(),
                 [
                     'siteKey' => '6LdNSMgUAAAAADTJgfMyplx94bqrdrrq_tpj5Iwa', // unnecessary is reCaptcha component was set up
                 ]
             ) ?>
+
+
+            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
 
             <?php ActiveForm::end(); ?>
 

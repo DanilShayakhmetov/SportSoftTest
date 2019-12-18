@@ -30,7 +30,7 @@ class ContactForm extends Model
             // email has to be a valid email address
             ['email', 'email'],
             [['name','surName'], 'string', 'min'=> 3],
-            [['body'], 'string', 'min'=> 100],
+            [['body'],  'string', 'min'=> 100],
             // verifyCode needs to be entered correctly
 //            ['verifyCode', 'captcha'],
             [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator2::className(),
