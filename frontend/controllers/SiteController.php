@@ -127,15 +127,15 @@ class SiteController extends Controller
             if ($model->load(Yii::$app->request->post()) && $model->validate()) {
                     $user_id = Yii::$app->user->getId();
                     $contact = new Contact();
-                    $contact->name = $model->name;
-                    $contact->sur_name = $model->surName;
+                    $contact->name = ucfirst($model->name);
+                    $contact->sur_name = ucfirst($model->surName);
                     $contact->phone_number = $model->phone;
                     $contact->email = $model->email;
                     $contact->text_message = $model->body;
-                    $contact->user_id = '2';
+                    $contact->user_id = $user_id;
                     $contact->save();
                     Yii::$app->session->setFlash('success', 'Thank you for you message');
-
+                    $this->refresh();
             } else {
                 return $this->render('contact', [
                     'model' => $model,

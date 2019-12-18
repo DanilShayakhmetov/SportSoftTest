@@ -21,6 +21,11 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
+        'reCaptcha' => [
+            'class' => 'himiklab\yii2\recaptcha\ReCaptchaConfig',
+            'siteKeyV3' => '6LeERcgUAAAAAAbJlOcFsoH_eEoG8Qt_rPrwq5YJ',
+            'secretV3' => '6LeERcgUAAAAAC4-wPNjj7OUAVydrafVE8nyBBH7',
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

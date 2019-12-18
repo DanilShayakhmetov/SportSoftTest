@@ -19,10 +19,28 @@ public function safeUp()
         'name' => $this->string()->notNull(),
         'sur_name' => $this->string()->notNull(),
         'phone_number' => $this->string()->notNull(),
-        'email' => $this->string()->notNull()->unique(),
-        'text_message' => $this->string(),
-        'user_id' => $this->string()->notNull(),
+        'email' => $this->string()->notNull(),
+        'text_message' => $this->text(),
+        'user_id' => $this->integer()->notNull(),
         ], $tableOptions);
+
+        // creates index for column `user_id`
+    $this->createIndex(
+        'idx-contact-user_id',
+        'contact',
+        'user_id'
+    );
+
+    // add foreign key for table `user`
+    $this->addForeignKey(
+        'fk-contact-user_id',
+        'contact',
+        'user_id',
+        'user',
+        'id',
+        'CASCADE',
+        'CASCADE'
+    );
 
 }
 

@@ -43,9 +43,8 @@ class FeedbackController extends \yii\web\Controller
                     'text_message',
                     'user_id'])
                 ->from('contact')
-                ->where(['email' =>Yii::$app->user->identity['email']])
+                ->where(['user_id' =>Yii::$app->user->getId()])
                 ->all();
-                    var_dump(Yii::$app->user->id);
 
             $dataProvider = new ArrayDataProvider([
                 'allModels' => $feedbackMessages,

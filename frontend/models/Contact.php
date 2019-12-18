@@ -34,7 +34,7 @@ class Contact extends \yii\db\ActiveRecord
             [['name', 'sur_name', 'phone_number', 'email','user_id'], 'required'],
             [['name', 'sur_name', 'email', 'text_message'], 'string', 'max' => 255],
             [['phone_number'], 'string', 'max' => 32],
-            [['email'], 'unique'],
+//            [['email'], 'unique'],
         ];
     }
 
