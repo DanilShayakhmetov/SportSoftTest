@@ -29,7 +29,10 @@ class ContactForm extends Model
             [['name','surName', 'email', 'phone', 'body'], 'required'],
             // email has to be a valid email address
             ['email', 'email'],
-            [['name','surName'], 'string', 'min'=> 3, 'pattern' => '/^[a-zA-Z\s]+$/',],
+            [['name','surName'], 'string', 'min'=> 3],
+            ['name', 'match', 'pattern' => '/^[a-zA-Z\s]+$/'],
+            ['surName', 'match', 'pattern' => '/^[a-zA-Z\s]+$/'],
+            ['phone', 'match', 'pattern' => '/^\+\d\((\d{3})\)(\d{3})\-(\d{2})\-(\d{2})$/'],
             [['body'],  'string', 'min'=> 100],
             // verifyCode needs to be entered correctly
 //            ['verifyCode', 'captcha'],
